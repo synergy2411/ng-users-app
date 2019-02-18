@@ -1,0 +1,14 @@
+JavaScript References : javascript.info
+Typescript References : typescriptlang.org > documentation > handbook
+Angular CLI Commands : https://cli.angular.io
+Bootstrap References : getbootstrap.com
+
+Commands  
+--------
+> npm uninstall -g @angular/cli
+> npm install -g @angular/cli@6
+> ng -v
+> ng new users-app (creates new angular project)
+> cd users-app
+> ng serve (starting webpack live dev server)
+> npm install bootstrap@3 --save

@@ -1,0 +1,41 @@
+<div class="container">
+    <h2>Data from parent : {{ title }}</h2>
+<ul class="list-unstyled">
+    <li class="well">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+
+                <app-user-image [user]="user"></app-user-image>
+                <!-- <img [src]="user.image" class="img-responsive img-circle">
+                <hr>
+                <!-- Event Binding 
+                <button (click)="moreInfo(user)" class="btn btn-info btn-sm">More Info</button> -->
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <app-user-info [user]="user"></app-user-info>
+                <!-- <h1> {{ user.firstName  + " " + user.lastName }}</h1>
+                <!-- Angular Interpolation {{ }} 
+                <p>Income : {{ user.income }}</p>
+                <!-- Property Binding [] 
+                <p>Date of Birth : <span [innerHTML]="user.dob"></span></p> -->
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <app-user-vote [user]="user"></app-user-vote>
+                <!-- Total Votes : {{ user.vote }}
+                <!-- <input type="number" 
+                    [value]="user.vote" 
+                    class="form-control"
+                    (change)="onChange($event)">
+                <input type="number" 
+                    [value]="user.vote" 
+                    class="form-control"
+                    (change)="user.vote = $event.target.value">
+                <!-- Using "Banana in the box"
+                <input type="number" 
+                    [(ngModel)]="user.vote" 
+                    class="form-control"> -->
+            </div>
+        </div>
+    </li>
+</ul>
+</div>

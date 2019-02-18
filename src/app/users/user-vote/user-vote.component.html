@@ -1,0 +1,8 @@
+Total Votes : {{ user.vote }}
+<!-- <input type="number" 
+        [value]="user.vote" 
+        class="form-control"
+        (change)="onChange($event)"> -->
+<input type="number" [value]="user.vote" class="form-control" (change)="user.vote = $event.target.value">
+<!-- Using "Banana in the box" -->
+<input type="number" [(ngModel)]="user.vote" class="form-control">
