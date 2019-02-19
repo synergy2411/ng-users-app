@@ -1,5 +1,34 @@
-<h1> {{ user.firstName  + " " + user.lastName }}</h1>
+<!-- Data Projection -->
+<!-- <ng-content select="header"></ng-content>
+<ng-content select=".content"></ng-content> -->
+
+<h1 app-highlight [myColor]="myColor"> {{ user.firstName  + " " + user.lastName }}</h1>
 <!-- Angular Interpolation {{ }} -->
-<p>Income : {{ user.income }}</p>
+<p *ngIf="user.isWorking; else ElseTemplate">Income : {{ user.income }}</p>
+
+<p *appUnless="user.isWorking">User is working!</p>
+
+<!-- <ng-template [appUnless]="user.isWorking">
+    <p>Income : {{ user.income }}</p>
+</ng-template> -->
+
+
+<!-- Desugar Syntax -*ngIF -->
+<!-- 
+    <ng-template [ngIf]="user.isWorking">
+    <p>Income :  {{ user.income }}</p>
+</ng-template> -->
+
 <!-- Property Binding [] -->
-<p>Date of Birth : <span [innerHTML]="user.dob"></span></p>
+<!-- <p [ngClass]="['border', 'feature']">Date of Birth : <span [innerHTML]="user.dob"></span></p> -->
+<!-- <p [ngClass]="{'border' : false, 'feature' : true}">Date of Birth : <span [innerHTML]="user.dob"></span></p> -->
+<p [ngClass]="myClasses">Date of Birth : <span [innerHTML]="user.dob"></span></p>
+<button class="btn btn-default" (click)="onToggle()">Toggle</button>
+
+
+
+<!-- <ng-content></ng-content> -->
+
+<ng-template #ElseTemplate>
+    <p [ngStyle]="myStyles">{{user.firstName }} is NOT working now!</p>
+</ng-template>

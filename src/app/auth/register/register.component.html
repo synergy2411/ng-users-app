@@ -1,0 +1,47 @@
+<div class="container">
+  <h1 class="text-center text-success">Register</h1>
+  <form (ngSubmit)="onRegister()" class="well" [formGroup] = "registerForm">
+    <div class="form-group">
+      <label for="username">Username : </label>
+      <input type="text" 
+        name="username" 
+        class="form-control"
+        [formControl]="username">
+        <div [hidden]="username.valid || username.untouched">
+           <p class="text-danger"> Some Problem with Username.</p>
+           <div [hidden]= "!username.hasError('required')">
+              <p class="text-danger"> *Username is mandatory field!</p>
+           </div>
+           <div [hidden]= "!username.hasError('email')">
+              <p class="text-danger"> *Need email pattern only!</p>
+           </div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password : </label>
+      <input type="password" 
+        name="password" 
+        [formControl]= "password"
+        class="form-control">
+
+        <div [hidden]="password.valid || password.untouched">
+            <p class="text-danger"> Some Problem with password.</p>
+            <div [hidden]= "!password.hasError('required')">
+               <p class="text-danger"> *Password is mandatory field!</p>
+            </div>
+            <div [hidden]= "!password.hasError('minlength')">
+               <p class="text-danger"> *Password must be 6 characters long!</p>
+            </div>
+            <div [hidden]="!password.hasError('needExclamation')">
+                <p class="text-danger"> *Password must have Exclamation Mark(!).</p>
+            </div>
+         </div>
+
+    </div>
+    <div class="form-group">
+      <button type="submit" 
+        [disabled] = "!registerForm.valid" 
+        class="btn btn-success btn-block">Register</button>
+    </div>
+  </form>
+</div>

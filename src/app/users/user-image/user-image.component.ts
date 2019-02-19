@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { IUser } from './../../model/user.model';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-user-image',
@@ -7,10 +8,15 @@ import { Component, Input } from '@angular/core';
 })
 export class UserImageComponent {
 
-  @Input('user') user: any;
+  @Input('user') user: IUser;
+  @Output('childEvent') childEvent = new EventEmitter<IUser>();
 
-  moreInfo(user: any) {
-    alert(`${user.firstName} is working with ${user.company}!!`);
+  onClick(user: IUser){
+    this.childEvent.emit(user);
   }
+
+  // moreInfo(user: any) {
+  //   alert(`${user.firstName} is working with ${user.company}!!`);
+  // }
 
 }

@@ -1,18 +1,28 @@
 <div class="container">
-    <h2>Data from parent : {{ title }}</h2>
+    <h1>Data from parent : {{ title }}</h1>
+    <p>Some Contents</p>
 <ul class="list-unstyled">
-    <li class="well">
+    <li class="well" *ngFor="let user of users; index as i; first as isFirst; even as isEven">
+        <!-- Index  : {{ i }} <br>
+        Is this First : {{ isFirst }} <br>
+        Is this Even? : {{ isEven }} -->
         <div class="row">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 
-                <app-user-image [user]="user"></app-user-image>
+                <app-user-image 
+                    [user]="user" 
+                    (childEvent)="moreInfo($event)" ></app-user-image>
                 <!-- <img [src]="user.image" class="img-responsive img-circle">
                 <hr>
                 <!-- Event Binding 
                 <button (click)="moreInfo(user)" class="btn btn-info btn-sm">More Info</button> -->
             </div>
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                <app-user-info [user]="user"></app-user-info>
+                <app-user-info [user]="user">
+                    <header>Header info</header>
+                    <h3 class="content">User Name : {{ user.firstName }}</h3>
+                    <!-- <h3 id="content">User Name : {{ user.firstName }}</h3> -->
+                </app-user-info>
                 <!-- <h1> {{ user.firstName  + " " + user.lastName }}</h1>
                 <!-- Angular Interpolation {{ }} 
                 <p>Income : {{ user.income }}</p>
@@ -36,6 +46,13 @@
                     class="form-control"> -->
             </div>
         </div>
+        <!-- <div [ngSwitch]="i" >
+            <div *ngSwitchCase="'0'">Output 1</div>
+            <div *ngSwitchCase="'1'">Output 2</div>
+            <div *ngSwitchCase="'2'">Output 3</div>
+            <div *ngSwitchDefault>Default Output </div>
+        </div> -->
+
     </li>
 </ul>
 </div>
