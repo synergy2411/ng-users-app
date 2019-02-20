@@ -18,6 +18,8 @@ import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { CountryCodePipe } from './pipes/country-code.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { DataService } from './services/data.service';
+import { AuthService } from './services/auth.service';
+
 import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
 
 @NgModule({
@@ -43,7 +45,7 @@ import { ObservableDemoComponent } from './observable-demo/observable-demo.compo
     HttpModule,
     HttpClientModule  
   ],
-  providers: [ DataService ],      // Services
+  providers: [ DataService, AuthService ],      // Services
   // bootstrap: [AppComponent, UsersComponent]
   bootstrap: [AppComponent]
 })

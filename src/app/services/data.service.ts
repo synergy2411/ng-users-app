@@ -1,3 +1,4 @@
+import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
 import { USER_DATA } from '../model/mocks';
 import { Http } from '@angular/http';
@@ -12,7 +13,8 @@ export class DataService{
     counter : number = 0;
     
     constructor(private http : Http,
-                private httpClient : HttpClient){}
+                private httpClient : HttpClient,
+                private authService : AuthService){}
 
     getUserData(){
         return USER_DATA;
@@ -35,11 +37,9 @@ export class DataService{
     }
 
     getHttpClientUserData(){
-        return this.httpClient.get<IUser[]>("https://ng-users-app-fdc5f.firebaseio.com/userdata.json");
+        return this.httpClient.get<IUser[]>("https://ng-users-app-fdc5f.firebaseio.com/userdata.json?auth="+this.authService.getToken());
             //.subscribe(userdata => console.log("[HTTP CLIENT]", userdata));
     }
 
-
 }
 
-// npm i rxjs-compat --save

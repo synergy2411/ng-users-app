@@ -11,12 +11,18 @@
   <!-- <app-pipe-demo></app-pipe-demo> -->
 
 
-  <!-- <app-register></app-register> -->
+  <app-login></app-login>
 
-  <!-- <app-login></app-login> -->
+  <app-register></app-register>
+
+  
 
   <!-- <app-observable-demo></app-observable-demo> -->
 
-  <app-users [title]="title"></app-users>
+  <div *ngIf = "authService.isAuthenticated()">
+    <app-users [title]="title"></app-users> 
+  </div>
+
+  
 
 </div>
