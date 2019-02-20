@@ -1,4 +1,5 @@
-import { USER_DATA } from './../model/mocks';
+import { DataService } from './../services/data.service';
+// import { USER_DATA } from './../model/mocks';
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { IUser } from './../model/user.model';
 
@@ -11,7 +12,8 @@ import { IUser } from './../model/user.model';
         color : yellow;
     }
     `],
-    encapsulation: ViewEncapsulation.Emulated
+    encapsulation: ViewEncapsulation.Emulated,
+    // providers : [DataService]
 })
 export class UsersComponent implements OnInit {
     // DoCheck, 
@@ -25,14 +27,23 @@ export class UsersComponent implements OnInit {
     @Input('title') title: string;
     users: IUser[];
 
-    constructor() {
-        console.log("Constructor");
+    onIncrease(){
+        this.dataService.counter++;
+    }
+
+    constructor(public dataService : DataService) {
+        // console.log("Constructor");
         // this.user = USER_DATA;
     }
 
     ngOnInit() {
+        // this.users = this.dataService.getUserData();
+        
+        this.dataService.getJsonUserData()
+            .subscribe(userdata => this.users = userdata);
+
         // console.log("ngOnInit");
-        this.users = USER_DATA;
+        // this.users = USER_DATA;
         console.log(this.users);
         // setTimeout(()=>{
         //     console.log("ngOnInit"); 
@@ -59,3 +70,5 @@ export class UsersComponent implements OnInit {
 
 
 }
+
+

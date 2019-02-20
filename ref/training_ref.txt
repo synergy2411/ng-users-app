@@ -12,3 +12,13 @@ Commands
 > cd users-app
 > ng serve (starting webpack live dev server)
 > npm install bootstrap@3 --save
+> ng generate component <COMP_NAME>
+> ng generate directive <DIR_NAME>
+
+
+
+
+
+
+
+

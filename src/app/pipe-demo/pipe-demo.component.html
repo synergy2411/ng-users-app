@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Result : {{ promise | async | uppercase}} </h1>
+  <h2>Contact Number : {{ contact_no | countrycode: 'AUS'  }}</h2>
+
+  <hr>
+  <!-- <input type="text" [(ngModel)]= "filteredStatus" class="form-control"> -->
+  <select [(ngModel)]="filteredStatus" >
+    <option value="done">done</option>
+    <option value="pending">pending</option>
+  </select>
+  
+  <button (click)="onAddNewTodo()" class="btn btn-block btn-info">
+      Add New Todo</button>
+
+  <ul class="list-group">
+    <li class="list-group-item" 
+      *ngFor="let todo of todos | filter : filteredStatus : 'status'">
+      {{ todo.label }}
+      <span class="badge">
+        {{todo.status}}
+      </span>
+    </li>
+  </ul>
+
+</div>

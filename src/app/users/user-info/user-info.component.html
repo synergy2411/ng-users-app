@@ -1,11 +1,17 @@
 <!-- Data Projection -->
 <!-- <ng-content select="header"></ng-content>
 <ng-content select=".content"></ng-content> -->
+<!-- 
+{{ user | json }} -->
 
-<h1 app-highlight [myColor]="myColor"> {{ user.firstName  + " " + user.lastName }}</h1>
-<!-- Angular Interpolation {{ }} -->
-<p *ngIf="user.isWorking; else ElseTemplate">Income : {{ user.income }}</p>
+<h1 app-highlight [myColor]="myColor"> 
+    {{ user.firstName   | uppercase }} {{user.lastName}}</h1>
 
+    <!-- Angular Interpolation {{ }} -->
+<p *ngIf="user.isWorking; else ElseTemplate">
+        Income : {{ user.income | currency : 'EUR' : 'code'}}</p>
+
+<!-- Custom Structural Directive -->
 <p *appUnless="user.isWorking">User is working!</p>
 
 <!-- <ng-template [appUnless]="user.isWorking">
@@ -22,7 +28,8 @@
 <!-- Property Binding [] -->
 <!-- <p [ngClass]="['border', 'feature']">Date of Birth : <span [innerHTML]="user.dob"></span></p> -->
 <!-- <p [ngClass]="{'border' : false, 'feature' : true}">Date of Birth : <span [innerHTML]="user.dob"></span></p> -->
-<p [ngClass]="myClasses">Date of Birth : <span [innerHTML]="user.dob"></span></p>
+<p [ngClass]="myClasses">
+    Date of Birth : <span [innerHTML]="user.dob | date : 'MM/dd/yyyy'"></span></p>
 <button class="btn btn-default" (click)="onToggle()">Toggle</button>
 
 

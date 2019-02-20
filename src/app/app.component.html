@@ -3,12 +3,18 @@
     Hello {{title}}!
   </h1>
 
+  <h2>Counter in App Component :: {{ dataService.counter }}
+      <button (click)="onIncrease()" class="btn btn-sm">Increase</button> </h2>
+
   <!-- <input type="text" [(ngModel)]="title"> -->
 
-  <app-register></app-register>
+  <!-- <app-pipe-demo></app-pipe-demo> -->
+
+
+  <!-- <app-register></app-register> -->
 
   <!-- <app-login></app-login> -->
 
-  <!-- <app-users [title]="title"></app-users> -->
+  <app-users [title]="title"></app-users>
 
 </div>

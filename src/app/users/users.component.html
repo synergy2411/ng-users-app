@@ -1,6 +1,14 @@
 <div class="container">
+    
+    <!-- {{ users | json }} -->
+
     <h1>Data from parent : {{ title }}</h1>
+    <h2>Counter in User Component :: {{ dataService.counter }}
+        <button (click)="onIncrease()" class="btn btn-sm">Increase</button> </h2>
+
     <p>Some Contents</p>
+
+
 <ul class="list-unstyled">
     <li class="well" *ngFor="let user of users; index as i; first as isFirst; even as isEven">
         <!-- Index  : {{ i }} <br>
