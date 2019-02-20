@@ -39,12 +39,21 @@ export class UsersComponent implements OnInit {
     ngOnInit() {
         // this.users = this.dataService.getUserData();
         
-        this.dataService.getJsonUserData()
+        // HTTP CLIENT CALL
+        this.dataService.getHttpClientUserData()
             .subscribe(userdata => this.users = userdata);
+        
+            // HTTP CALL
+            // this.dataService.getJsonUserData()
+        //     .subscribe(
+        //         userdata => this.users = userdata,
+        //         err => console.log(err),
+        //         ()=> console.log("COmpleted!")
+        //         );
 
         // console.log("ngOnInit");
         // this.users = USER_DATA;
-        console.log(this.users);
+        // console.log(this.users);
         // setTimeout(()=>{
         //     console.log("ngOnInit"); 
         // }, 2000);

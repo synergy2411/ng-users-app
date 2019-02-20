@@ -1,5 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { DataService } from './services/data.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +8,21 @@ import { DataService } from './services/data.service';
   styleUrls: ['./app.component.css'],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title: string = "Angular";
 
   constructor(public dataService: DataService) { }
 
+  ngOnInit() {
+    firebase.initializeApp({
+      apiKey: "AIzaSyAxJ_T_9yUqcewAH2KtSMoUqbXKvcbOseI",
+      authDomain: "ng-users-app-fdc5f.firebaseapp.com"
+    });
+  }
+
   onIncrease() {
     this.dataService.counter++;
   }
-  
+
 }
+//npm install firebase --save

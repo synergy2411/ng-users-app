@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
@@ -17,6 +18,7 @@ import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { CountryCodePipe } from './pipes/country-code.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { DataService } from './services/data.service';
+import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
 
 @NgModule({
   declarations: [     // Components, Directives, Pipes
@@ -31,13 +33,15 @@ import { DataService } from './services/data.service';
     RegisterComponent,
     PipeDemoComponent,
     CountryCodePipe,
-    FilterPipe
+    FilterPipe,
+    ObservableDemoComponent
   ],
   imports: [          // Modules
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule  
+    HttpModule,
+    HttpClientModule  
   ],
   providers: [ DataService ],      // Services
   // bootstrap: [AppComponent, UsersComponent]
