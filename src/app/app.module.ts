@@ -3,8 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { APP_ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { UserImageComponent } from './users/user-image/user-image.component';
@@ -19,6 +21,8 @@ import { CountryCodePipe } from './pipes/country-code.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service';
+import { LoggerInterceptorService } from './services/logger-interceptor.service';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
 
@@ -43,9 +47,21 @@ import { ObservableDemoComponent } from './observable-demo/observable-demo.compo
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    HttpClientModule  
+    HttpClientModule,
+    RouterModule.forRoot(APP_ROUTES)
   ],
-  providers: [ DataService, AuthService ],      // Services
+  providers: [ DataService, 
+    AuthService,
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : AuthInterceptorService,
+      multi : true
+    },{
+      provide : HTTP_INTERCEPTORS,
+      useClass : LoggerInterceptorService,
+      multi : true
+    }
+     ],      // Services
   // bootstrap: [AppComponent, UsersComponent]
   bootstrap: [AppComponent]
 })

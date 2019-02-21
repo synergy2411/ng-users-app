@@ -2,7 +2,7 @@ import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
 import { USER_DATA } from '../model/mocks';
 import { Http } from '@angular/http';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 
 import 'rxjs/add/operator/map';
 import { IUser } from '../model/user.model';
@@ -37,8 +37,16 @@ export class DataService{
     }
 
     getHttpClientUserData(){
-        return this.httpClient.get<IUser[]>("https://ng-users-app-fdc5f.firebaseio.com/userdata.json?auth="+this.authService.getToken());
-            //.subscribe(userdata => console.log("[HTTP CLIENT]", userdata));
+        return this.httpClient.get<IUser[]>("https://ng-users-app-fdc5f.firebaseio.com/userdata.json");
+        
+        // return this.httpClient.get<IUser[]>("https://ng-users-app-fdc5f.firebaseio.com/userdata.json?auth="+this.authService.getToken());
+        
+        // return this.httpClient.get<IUser[]>("https://ng-users-app-fdc5f.firebaseio.com/userdata.json",{
+        //     params : new HttpParams().set("auth", this.authService.getToken())
+        //     // headers : new HttpHeaders().set()
+        // });
+        
+        //.subscribe(userdata => console.log("[HTTP CLIENT]", userdata));
     }
 
 }

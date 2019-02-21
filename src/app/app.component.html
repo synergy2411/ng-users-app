@@ -1,18 +1,37 @@
 <div class="container">
+  <ul class="nav navbar-nav navbar-default">
+    <li><a [routerLink]="['login']">Login</a></li>
+    <li><a [routerLink]="['register']">Register</a></li>
+    <li><a [routerLink]="['pipe']">Pipe</a></li>
+    <li><a [routerLink]="['observable']">Observable</a></li>
+    <li><a [routerLink]="['users']">Users</a></li>
+  </ul>
+</div>
+
+<div class="container">
   <h1>
     Hello {{title}}!
   </h1>
 
+  <hr>
+  <div class="container">
+    <router-outlet>
+    </router-outlet>
+  </div>
+
+
+  <!-- 
   <div *ngIf="authService.isAuthenticated()">
     <button class="btn btn-danger" (click)="onLogout()">Logout</button>
   </div>
 
+  <!-- "Service Instance is Singleton" 
   <h2>Counter in App Component :: {{ dataService.counter }}
     <button (click)="onIncrease()" class="btn btn-sm">Increase</button> </h2>
 
   <!-- <input type="text" [(ngModel)]="title"> -->
 
-  <!-- <app-pipe-demo></app-pipe-demo> -->
+  <!-- <app-pipe-demo></app-pipe-demo> 
 
   <div *ngIf="!authService.isAuthenticated()">
     <app-login></app-login>
@@ -23,11 +42,11 @@
   </div> -->
 
 
-  <!-- <app-observable-demo></app-observable-demo> -->
+  <!-- <app-observable-demo></app-observable-demo>
 
   <div *ngIf="authService.isAuthenticated()">
     <app-users [title]="title"></app-users>
-  </div>
+  </div> -->
 
 
 
