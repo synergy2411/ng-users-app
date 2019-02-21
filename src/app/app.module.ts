@@ -23,8 +23,12 @@ import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service';
 import { LoggerInterceptorService } from './services/logger-interceptor.service';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { LoginGaurdService } from './services/login-gaurd.service';
 
 import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
+import { ProductComponent } from './product/product.component';
+import { OverviewComponent } from './product/overview/overview.component';
+import { SpecificationComponent } from './product/specification/specification.component';
 
 @NgModule({
   declarations: [     // Components, Directives, Pipes
@@ -40,7 +44,10 @@ import { ObservableDemoComponent } from './observable-demo/observable-demo.compo
     PipeDemoComponent,
     CountryCodePipe,
     FilterPipe,
-    ObservableDemoComponent
+    ObservableDemoComponent,
+    ProductComponent,
+    OverviewComponent,
+    SpecificationComponent
   ],
   imports: [          // Modules
     BrowserModule,
@@ -60,7 +67,7 @@ import { ObservableDemoComponent } from './observable-demo/observable-demo.compo
       provide : HTTP_INTERCEPTORS,
       useClass : LoggerInterceptorService,
       multi : true
-    }
+    }, LoginGaurdService
      ],      // Services
   // bootstrap: [AppComponent, UsersComponent]
   bootstrap: [AppComponent]
