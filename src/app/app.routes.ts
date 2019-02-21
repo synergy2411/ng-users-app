@@ -8,6 +8,7 @@ import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ProductComponent } from './product/product.component';
+import { NewEmployeeComponent } from './employee/new-employee/new-employee.component';
 
 export const APP_ROUTES : Routes = [{
     path : '',                  //http://localhost:4200
@@ -37,16 +38,22 @@ export const APP_ROUTES : Routes = [{
         redirectTo : 'overview',
         pathMatch : 'full'
     },{
-        path : 'overview',             //http://localhost:4200/product/overview
-        component : OverviewComponent
-    },{
         path : 'overview/:id/:prod_name',  //http://localhost:4200/product/overview
         component : OverviewComponent
     }, {
+        path : 'overview',             //http://localhost:4200/product/overview
+        component : OverviewComponent
+    },{
         path : 'spec',              //http://localhost:4200/product/spec
         component : SpecificationComponent
     }]
 }, {
+    path : 'employee',
+    component : NewEmployeeComponent
+},{ //lazy Module
+    path : 'lazy',
+    loadChildren : './lazy/lazy.module#LazyModule'
+},{
     path : '**',                       //http://localhost:4200/notexist
     redirectTo : 'login',
     pathMatch : 'full'

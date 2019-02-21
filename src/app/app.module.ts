@@ -1,9 +1,11 @@
+import { SharedModule } from './shared/shared.module';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { EmployeeModule } from './employee/employee.module';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_ROUTES } from './app.routes';
@@ -55,7 +57,9 @@ import { SpecificationComponent } from './product/specification/specification.co
     ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    EmployeeModule,
+    SharedModule.forRoot()
   ],
   providers: [ DataService, 
     AuthService,

@@ -1,3 +1,4 @@
+import { SharedService } from './shared/shared.service';
 import { AuthService } from './services/auth.service';
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { DataService } from './services/data.service';
@@ -13,7 +14,8 @@ export class AppComponent implements OnInit {
   title: string = "Angular";
 
   constructor(public dataService: DataService,
-              public authService: AuthService) { }
+              public authService: AuthService,
+              public sharedService : SharedService) { }
 
   onLogout(){
     this.authService.onLogout();
@@ -28,6 +30,7 @@ export class AppComponent implements OnInit {
 
   onIncrease() {
     this.dataService.counter++;
+    this.sharedService.ctr++;
   }
 
 }

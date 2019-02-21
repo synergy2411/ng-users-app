@@ -4,8 +4,9 @@
     
     <div class="col-lg-2 col-md-2 col-sm-2">
       <ul class="list-unstyled">
-        <li><a [routerLink]="['overview', 5 , 'iPhoneX']">Overview</a></li>
-        <li><a [routerLink]="['spec']">Specification</a></li>
+        <!-- <li><a [routerLink]="['overview'  5  'iPhoneX']">Overview</a></li> -->
+        <li><a [routerLink]="['overview',  5,  'iPhoneX']">Overview</a></li>
+        <li><a [routerLink]="['spec']" [queryParams]= "{'page_no' : 99}">Specification</a></li>
       </ul>
     </div>
     <div class="col-lg-10 col-md-10 col-sm-10">
