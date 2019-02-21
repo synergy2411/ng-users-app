@@ -36,6 +36,15 @@
     </router-outlet>
   </div>
 
+<br>
+<hr>
+
+Interpolation : {{ jsSnippets }} <br>
+<p>Property Binding :  <span [innerHTML]="jsSnippets"></span></p>
+
+<hr>
+
+
   <!-- "Service Instance is Singleton" -->
   <h2>Counter in App Component :: {{ dataService.counter }} <br>
   CTR in App Component :: {{ sharedService.ctr }}

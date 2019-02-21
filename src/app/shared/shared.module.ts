@@ -1,14 +1,14 @@
-import { SharedService } from './shared.service';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ModuleWithProviders } from '@angular/compiler/src/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { SharedService } from './shared.service';
+
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [],
-  
+  // providers : [SharedService]
 })
 export class SharedModule { 
   static forRoot () : ModuleWithProviders {
@@ -18,3 +18,6 @@ export class SharedModule {
     }
   } 
 }
+
+
+//npm cache clean --force

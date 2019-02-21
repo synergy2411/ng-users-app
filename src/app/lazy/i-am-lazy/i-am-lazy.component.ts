@@ -12,12 +12,9 @@ export class IAmLazyComponent implements OnInit {
   ctr : number ;
   constructor(private dataService: DataService,
     public sharedService: SharedService) {
-    console.log("[Counter]", this.dataService.counter);
-    console.log("[CTR]", this.sharedService.ctr);
   }
 
   ngOnInit() {
-    this.ctr = this.sharedService.ctr;
   }
 
 }

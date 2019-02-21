@@ -11,7 +11,9 @@ Commands
 > npm install -g @angular/cli@6
 > npm install bootstrap@3 --save	// bootstrap CSS library
 > npm install rxjs-compat --save 	// rxjs 5 to rxjs 6 compatability
-> npm install firebase --save		// firebase SDK
+> npm cache clean --force		// cleans the cache
+> npm install firebase --save		// firebase SDK 
+> npm install serve -g			// servers html file, zero config server
 
 
 > ng -v
@@ -21,8 +23,8 @@ Commands
 > ng generate component <COMP_NAME>
 > ng generate directive <DIR_NAME>
 > ng generate pipe <PIPE_NAME>
-
-
+> ng build --prod --aot
+> ng build --prod --aot --base-href="users-app"
 
 
 
